@@ -1,0 +1,47 @@
+.search_container {
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 15px;
+    align-items: top;
+  
+  }
+  
+  .search_form {
+    position: relative;
+    background: white;
+    margin-right: 10px;
+  }
+  
+  .search_field{
+    width: 670px;
+    height: 42px;
+    padding-left: 15px;
+    border: 1px solid #C73153;
+    border-radius: 4px;
+  }
+  
+  .search_button {
+    height: 38px;
+    width: 41px;
+    position: absolute;
+    background-color: #fff;
+    right: 2px;
+    top: 2px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+  }
+  
+  .copy_button {
+    width: 44px;
+    height: 44px;
+    background-color: #F2F2F2;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 58px;
+  }
