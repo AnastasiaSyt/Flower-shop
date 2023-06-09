@@ -9,12 +9,10 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="wrapper header_wrapper">
-          <div className="header_logo">
-            <Link to="/main">
-              <img src={logo} alt="project logo" />
-              <p className="logo_text">flowers shop</p>
-            </Link>
-          </div>
+          <Link to="/main" className="header_logo">
+            <img src={logo} alt="project logo" />
+            <p className="logo_text">flowers shop</p>
+          </Link>
           <div className="header_cart">
             <div className="bg_cart">
               <img src={cart} alt="logo cart" className="cart_logo" />

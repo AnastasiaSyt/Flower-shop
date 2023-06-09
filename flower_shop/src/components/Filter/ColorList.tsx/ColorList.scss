@@ -1,6 +1,8 @@
 .color-filter {
     display: flex;
     align-items: center;
+    margin-left: 30px;
+    transition: all 0.15 ease-in-out;
   }
   
   .color-circle {
@@ -11,23 +13,13 @@
     border: 1px solid #e2e2e2;
     cursor: pointer;
   }
+
+  .color-circle:hover {
+    width: 18px;
+    height: 18px;
+  }
   
   .color-circle.selected {
     width: 18px;
     height: 18px;
-    //border: 1px solid white;
   }
-
-//   .color_circle {
-//     width: 20px;
-//     height: 20px;
-//     border-radius: 50%;
-
-//     // border: 1px solid #e2e2e2;
-//     cursor: pointer;
-// }
-
-// .color_circle.selected{
-//     width: 22px;
-//     height: 22px;
-// }

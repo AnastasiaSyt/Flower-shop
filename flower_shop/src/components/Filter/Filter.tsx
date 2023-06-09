@@ -2,6 +2,7 @@ import CheckboxList from "./CheckboxList/CheckboxList";
 import ColorList from "./ColorList.tsx/ColorList";
 import RangeSlider from "./RangeSlider/RangeSlider";
 import "./Filter.scss";
+import Button from "../Button/Button";
 
 export default function Filter() {
   const kindOfGift = ["все", "цветы", "букеты", "композиция"];
@@ -33,6 +34,9 @@ export default function Filter() {
       <CheckboxList items={flowers} title="цветок" />
       <RangeSlider minValue={0} maxValue={160} title="стоимость" />
       <RangeSlider minValue={20} maxValue={80} title="высота" />
+      <Button buttonType="solid" size="medium">
+        СБРОСИТЬ ФИЛЬТРЫ
+      </Button>
     </div>
   );
 }

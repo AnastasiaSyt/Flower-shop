@@ -1,7 +1,7 @@
 .filter_header {
     display: flex;
     align-items: center;
-
+    padding: 15px 30px 10px 30px;
     background: white;
     border: none;
     &_title {
@@ -10,6 +10,10 @@
         line-height: 2.8rem;
         text-transform: uppercase;  
         color: $text-color-light;
+        transition: all 0.15 ease-in-out;
+    }
+    &_title:hover {
+        color: $primary-color;
     }
 }
 

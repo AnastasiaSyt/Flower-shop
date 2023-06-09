@@ -10,7 +10,7 @@ function Footer() {
           {/* <NavLink to={ROUTES.welcome}> */}
           <img className="logo_footer" src={logo} alt="project logo" />
           <p className="text_logo_footer">flowers shop</p>
-          <p className="footer_text">© 2022</p>
+          <p className="footer_text">© 2023</p>
           {/* </NavLink> */}
         </div>
         <div className="footer_links">

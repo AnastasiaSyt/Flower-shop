@@ -41,28 +41,56 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
         )}
       </button>
       {collapsed && (
-        <div className="slider_container">
-          <div className="slider_track"></div>
-          <input
-            type="range"
-            name="0"
-            min={minValue}
-            max={maxValue}
-            value={values[0]}
-            onChange={handleSliderChange}
-            id="slider-1"
-          />
-          <input
-            type="range"
-            name="1"
-            min={minValue}
-            max={maxValue}
-            value={values[1]}
-            onChange={handleSliderChange}
-            id="slider-2"
-          />
-          <div>Минимальное значение: {values[0]}</div>
-          <div>Максимальное значение: {values[1]}</div>
+        // <div className="slider_container">
+        //   <div className="slider_track"></div>
+        // <input
+        //   type="range"
+        //   name="0"
+        //   min={minValue}
+        //   max={maxValue}
+        //   value={values[0]}
+        //   onChange={handleSliderChange}
+        //   id="slider-1"
+        // />
+        // <input
+        //   type="range"
+        //   name="1"
+        //   min={minValue}
+        //   max={maxValue}
+        //   value={values[1]}
+        //   onChange={handleSliderChange}
+        //   id="slider-2"
+        // />
+        //   <div>Минимальное значение: {values[0]}</div>
+        //   <div>Максимальное значение: {values[1]}</div>
+        // </div>
+        <div className="filter_body">
+          <div className="values">
+            <span id="range1">{values[0]}</span>
+            <span>-</span>
+            <span id="range2">{values[1]}</span>
+          </div>
+          <div className="slider_container">
+            <div className="slider_track"></div>
+            <input
+              type="range"
+              name="0"
+              min={minValue}
+              max={maxValue}
+              value={values[0]}
+              onChange={handleSliderChange}
+              id="slider-1"
+            />
+            <input
+              type="range"
+              name="1"
+              min={minValue}
+              max={maxValue}
+              value={values[1]}
+              onChange={handleSliderChange}
+              id="slider-2"
+            />
+          </div>
         </div>
       )}
     </div>
