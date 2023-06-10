@@ -1,15 +1,13 @@
-import { FC } from "react";
-import { Link } from "react-router-dom";
-import ICards from "../../types/ICards";
-import Card from "./Card/Card";
-import { useNavigate } from "react-router";
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
+import ICards from '../../types/ICards';
+import Card from './Card/Card';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../Redux/store';
+import './CardsContainer.scss';
 
-const CardsContainer: FC<{ cards: ICards[] }> = ({ cards }) => {
-  const navigate = useNavigate();
-
-  const handleCardClick = (cardData: ICards) => {
-    navigate(`/product/${cardData.id}`, { state: { cardData } });
-  };
+const CardsContainer: FC = () => {
+  const cards = useSelector((state: RootState) => state.cards.cards);
 
   return (
     <div className="cards" role="cards">

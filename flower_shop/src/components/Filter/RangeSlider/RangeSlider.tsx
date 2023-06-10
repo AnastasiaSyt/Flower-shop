@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import arrow_up from "../../../assets/arrow-drop-up.svg";
-import arrow_down from "../../../assets/arrow-drop-down.svg";
-import "./RangeSlider.scss";
+import React, { useState } from 'react';
+import arrow_up from '../../../assets/arrow-drop-up.svg';
+import arrow_down from '../../../assets/arrow-drop-down.svg';
+import './RangeSlider.scss';
 
 interface RangeSliderProps {
   minValue: number;
@@ -9,11 +9,7 @@ interface RangeSliderProps {
   title: string;
 }
 
-const RangeSlider: React.FC<RangeSliderProps> = ({
-  minValue,
-  maxValue,
-  title,
-}) => {
+const RangeSlider: React.FC<RangeSliderProps> = ({ minValue, maxValue, title }) => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
   const [values, setValues] = useState<number[]>([minValue, maxValue]);
 
@@ -41,29 +37,6 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
         )}
       </button>
       {collapsed && (
-        // <div className="slider_container">
-        //   <div className="slider_track"></div>
-        // <input
-        //   type="range"
-        //   name="0"
-        //   min={minValue}
-        //   max={maxValue}
-        //   value={values[0]}
-        //   onChange={handleSliderChange}
-        //   id="slider-1"
-        // />
-        // <input
-        //   type="range"
-        //   name="1"
-        //   min={minValue}
-        //   max={maxValue}
-        //   value={values[1]}
-        //   onChange={handleSliderChange}
-        //   id="slider-2"
-        // />
-        //   <div>Минимальное значение: {values[0]}</div>
-        //   <div>Максимальное значение: {values[1]}</div>
-        // </div>
         <div className="filter_body">
           <div className="values">
             <span id="range1">{values[0]}</span>

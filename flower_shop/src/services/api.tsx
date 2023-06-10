@@ -1,8 +1,13 @@
-import axios from "axios";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import ICards from '../types/ICards';
 
-const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/flowers",
-  timeout: 4000,
+export const api = createApi({
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000' }),
+  endpoints: (builder) => ({
+    getFlowers: builder.query<ICards[], void>({
+      query: () => 'flowers',
+    }),
+  }),
 });
 
-export default axiosInstance;
+export const { useGetFlowersQuery } = api;
