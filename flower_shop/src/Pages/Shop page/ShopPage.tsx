@@ -6,7 +6,7 @@ import image from '../../assets/flowers-green-leaves.jpg';
 import SearchContainer from '../../components/SearchContainer/SearchContainer';
 import SortingContainer from '../../components/SortingContainer/SortingContainer';
 import CardsContainer from '../../components/Cards/CardsContainer';
-import { setCards } from '../../Redux/cardsSlice';
+import { setCards } from '../../Redux/sortCardsSlice';
 
 function ShopPage() {
   const dispatch = useDispatch();

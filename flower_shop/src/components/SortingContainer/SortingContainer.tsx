@@ -8,7 +8,7 @@ import {
   sortByRating,
   sortByPriceCheap,
   sortByPriceExpensive,
-} from '../../Redux/cardsSlice';
+} from '../../Redux/sortCardsSlice';
 
 function SortingContainer() {
   const [tags, setTags] = useState<string[]>(['Tag 1', 'Tag 2', 'Tag 3']);
