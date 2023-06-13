@@ -1,8 +1,8 @@
-import { FC, ButtonHTMLAttributes } from "react";
-import "./Button.scss";
+import { FC, ButtonHTMLAttributes } from 'react';
+import './Button.scss';
 
-export type ButtonSize = "small" | "medium" | "large";
-export type ButtonType = "solid" | "outline";
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonType = 'solid' | 'outline';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
@@ -11,9 +11,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = ({
   children,
-  className = "",
-  size = "medium",
-  buttonType = "solid",
+  className = '',
+  size = 'medium',
+  buttonType = 'solid',
   ...rest
 }) => {
   const buttonClassName = `button ${buttonType} ${size} ${className}`;

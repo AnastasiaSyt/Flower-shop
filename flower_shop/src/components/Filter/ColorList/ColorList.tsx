@@ -21,7 +21,6 @@ const ColorList: React.FC<ColorListProps> = ({ title }) => {
 
   const handleColorClick = (color: string) => {
     setSelectedColor(color);
-    console.log(color);
     dispatch(setColorFilter([color]));
   };
 

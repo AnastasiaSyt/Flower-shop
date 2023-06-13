@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import arrow_up from '../../../assets/arrow-drop-up.svg';
 import arrow_down from '../../../assets/arrow-drop-down.svg';
 import './CheckboxList.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryFilter, setOccasionsFilter, setFlowerFilter } from '../../../Redux/filterSlice';
+import { RootState } from '../../../Redux/store';
 
 interface CheckboxListProps {
   items: string[];
@@ -18,14 +19,44 @@ const CheckboxList: React.FC<CheckboxListProps> = ({ items, title }) => {
     setCollapsed(!collapsed);
   };
 
+  const selectedCheckboxes = useSelector((state: RootState) => {
+    if (title === 'тип') {
+      return state.filters.category;
+    } else if (title === 'повод') {
+      return state.filters.occasions;
+    } else if (title === 'цветок') {
+      return state.filters.flower;
+    } else {
+      return [];
+    }
+  });
+
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
     if (title === 'тип') {
-      dispatch(setCategoryFilter(checked ? [value] : []));
+      dispatch(
+        setCategoryFilter(
+          checked
+            ? [...selectedCheckboxes, value]
+            : selectedCheckboxes.filter((item) => item !== value)
+        )
+      );
     } else if (title === 'повод') {
-      dispatch(setOccasionsFilter(checked ? [value] : []));
+      dispatch(
+        setOccasionsFilter(
+          checked
+            ? [...selectedCheckboxes, value]
+            : selectedCheckboxes.filter((item) => item !== value)
+        )
+      );
     } else if (title === 'цветок') {
-      dispatch(setFlowerFilter(checked ? [value] : []));
+      dispatch(
+        setFlowerFilter(
+          checked
+            ? [...selectedCheckboxes, value]
+            : selectedCheckboxes.filter((item) => item !== value)
+        )
+      );
     }
   };
 

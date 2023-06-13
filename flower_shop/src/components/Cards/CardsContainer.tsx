@@ -10,7 +10,6 @@ import './CardsContainer.scss';
 const CardsContainer: FC = () => {
   const cards = useSelector((state: RootState) => state.cards.cards);
   const filter = useSelector((state: RootState) => state.filters);
-  console.log(typeof filter);
   const filteredCards = filterCards(cards, filter);
 
   return (
