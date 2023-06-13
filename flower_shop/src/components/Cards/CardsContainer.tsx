@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { ICards } from "../../types/ICards";
+import ICards from "../../types/ICards";
 import Card from "./Card/Card";
 import { useNavigate } from "react-router";
 

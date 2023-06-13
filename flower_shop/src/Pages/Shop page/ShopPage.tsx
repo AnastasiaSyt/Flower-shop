@@ -4,7 +4,7 @@ import SearchContainer from "../../components/SearchContainer/SearchContainer";
 import SortingContainer from "../../components/SortingContainer/SortingContainer";
 import CardsContainer from "../../components/Cards/CardsContainer";
 import { useEffect, useState } from "react";
-import { ICards } from "../../types/ICards";
+import ICards from "../../types/ICards";
 import "./ShopPage.scss";
 
 function ShopPage() {

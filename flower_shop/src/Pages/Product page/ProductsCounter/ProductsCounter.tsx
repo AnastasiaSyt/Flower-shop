@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Counter.scss";
 
 function ProductsCounter() {
   const [count, setCount] = useState(0);
@@ -15,9 +16,19 @@ function ProductsCounter() {
 
   return (
     <div className="counter">
-      <button onClick={handleDecrement}>-</button>
-      <input type="number" value={count} onChange={() => {}} readOnly />
-      <button onClick={handleIncrement}>+</button>
+      <button onClick={handleDecrement} className="button_counter">
+        -
+      </button>
+      <input
+        className="input_counter"
+        type="number"
+        value={count}
+        onChange={() => {}}
+        readOnly
+      />
+      <button onClick={handleIncrement} className="button_counter">
+        +
+      </button>
     </div>
   );
 }
