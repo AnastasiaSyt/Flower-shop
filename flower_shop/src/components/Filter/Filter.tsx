@@ -1,5 +1,5 @@
 import CheckboxList from './CheckboxList/CheckboxList';
-import ColorList from './ColorList.tsx/ColorList';
+import ColorList from './ColorList/ColorList';
 import RangeSlider from './RangeSlider/RangeSlider';
 import './Filter.scss';
 import Button from '../Button/Button';

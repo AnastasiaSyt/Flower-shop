@@ -5,7 +5,7 @@ interface FilterState {
   size: number | null;
   occasions: string[];
   category: string[];
-  color: string | null;
+  color: string[];
   flower: string[];
 }
 
@@ -14,7 +14,7 @@ const initialState: FilterState = {
   size: null,
   occasions: [],
   category: [],
-  color: null,
+  color: [],
   flower: [],
 };
 
@@ -37,7 +37,7 @@ const filterSlice = createSlice({
     setFlowerFilter: (state, action: PayloadAction<string[]>) => {
       state.flower = action.payload;
     },
-    setColorFilter: (state, action: PayloadAction<string | null>) => {
+    setColorFilter: (state, action: PayloadAction<string[]>) => {
       state.color = action.payload;
     },
     clearFilters: (state) => {
@@ -45,7 +45,7 @@ const filterSlice = createSlice({
       state.size = null;
       state.occasions = [];
       state.category = [];
-      state.color = null;
+      state.color = [];
       state.flower = [];
     },
   },
