@@ -1,8 +1,7 @@
 const ROUTES = {
   main: "/",
   shop: "/shop",
-  //   signIn: "/signin",
-  //   signUp: "/signup",
+  product: "/product",
   basket: "/basket",
 };
 

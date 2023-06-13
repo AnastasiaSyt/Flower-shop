@@ -1,4 +1,4 @@
-export interface ICards {
+export default interface ICards {
   id: number;
   title: string;
   description: string;
