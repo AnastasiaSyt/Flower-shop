@@ -1,0 +1,86 @@
+.horizontal_card {
+    // width: 872px;
+    width: 100%;
+    height: 200px;
+    background: $base-bg-color;
+    border: 1px solid $light-gray-color;
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.horizontal_thumbnail {
+    height: 170px;
+    margin: 15px;
+    object-fit: cover;
+}
+
+.horizontal_card_content {
+    display: flex;
+}
+
+.horizontal_card_title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $text-color-light;
+}
+
+.horizontal_card_description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: $gray-color;
+    max-width: 400px;
+    
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.horizontal_price_card {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $text-color;
+}
+
+.horizontal_card_text {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.horizontal_card_icon {
+    width: 35px;
+    height: 35px;
+}
+
+.horizontal_card_more {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: $primary-color;
+    margin-right: 10px;
+}
+
+.horizontal_card_more_container {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.horizontal_card_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    margin: 15px 0;
+}

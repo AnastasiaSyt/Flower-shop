@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 import { filterCards } from '../../utils/filterUtils';
 import './CardsContainer.scss';
+import HorizontalCard from './HorizontalCard/HorizontalCard';
 
 const CardsContainer: FC = () => {
   const cards = useSelector((state: RootState) => state.cards.cards);
@@ -13,11 +14,13 @@ const CardsContainer: FC = () => {
   const filteredCards = filterCards(cards, filter);
 
   return (
-    <div className="cards" role="cards">
+    // <div className="cards" role="cards">
+    <div className="horiz" role="cards">
       {filteredCards.map((cardData: ICards, index: number) => {
         return (
           <Link key={index} to={`/product/${cardData.id}`} state={{ cardData }}>
-            <Card cardData={cardData} key={index} />
+            {/* <Card cardData={cardData} key={index} /> */}
+            <HorizontalCard cardData={cardData} key={index} />
           </Link>
         );
       })}

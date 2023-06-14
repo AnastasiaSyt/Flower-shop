@@ -8,6 +8,7 @@ import {
   sortByRating,
   sortByPriceCheap,
   sortByPriceExpensive,
+  cancelSort,
 } from '../../Redux/sortCardsSlice';
 
 function SortingContainer() {
@@ -35,6 +36,8 @@ function SortingContainer() {
       dispatch(sortByPriceCheap());
     } else if (value === 'expensive') {
       dispatch(sortByPriceExpensive());
+    } else {
+      dispatch(cancelSort());
     }
   };
 

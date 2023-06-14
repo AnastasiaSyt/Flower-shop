@@ -1,6 +1,6 @@
-import React from "react";
-import "./Tag.scss";
-import close_icon from "../../../assets/close.svg";
+import React from 'react';
+import './Tag.scss';
+import close_icon from '../../../assets/close.svg';
 
 interface TagProps {
   label: string;

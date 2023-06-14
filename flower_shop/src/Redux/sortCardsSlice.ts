@@ -30,9 +30,18 @@ const cardsSlice = createSlice({
     sortByPriceExpensive: (state) => {
       state.cards.sort((a, b) => b.price - a.price);
     },
+    cancelSort: (state) => {
+      state.sortCriteria = '';
+    },
   },
 });
 
-export const { setCards, setSortCriteria, sortByRating, sortByPriceCheap, sortByPriceExpensive } =
-  cardsSlice.actions;
+export const {
+  setCards,
+  setSortCriteria,
+  sortByRating,
+  sortByPriceCheap,
+  sortByPriceExpensive,
+  cancelSort,
+} = cardsSlice.actions;
 export default cardsSlice.reducer;

@@ -1,9 +1,9 @@
-import React, { type FC, useState } from "react";
-import "./Card.css";
-import { ICards } from "../../../types/ICards";
-import arrow_right from "../../../assets/arrow-right.svg";
-import cart_icon from "../../../assets/add_cart.svg";
-import { useNavigate } from "react-router-dom";
+import React, { type FC } from 'react';
+import './Card.scss';
+import ICards from '../../../types/ICards';
+import arrow_right from '../../../assets/arrow-right.svg';
+import { useNavigate } from 'react-router-dom';
+import CartLabel from '../CartLabel/CartLabel';
 
 interface CardProps {
   cardData: ICards;
@@ -25,10 +25,7 @@ const Card: FC<CardProps> = ({ cardData }: CardProps) => {
           <p className="price_card">${cardData.price}</p>
           <img className="card_icon" src={arrow_right} />
         </div>
-        <div className="cart_tag">
-          <img src={cart_icon} />
-          <p className="text_tag">добавить</p>
-        </div>
+        <CartLabel />
       </div>
     </div>
   );
