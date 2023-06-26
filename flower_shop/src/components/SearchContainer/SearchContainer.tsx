@@ -1,6 +1,6 @@
-import CopyButton from "./CopyButton/CopyButton";
-import SearchInput from "./SearchInput/SearchInput";
-import ToggleView from "./ToggleView/ToggleView";
+import CopyButton from './CopyButton/CopyButton';
+import SearchInput from './SearchInput/SearchInput';
+import ToggleView from './ToggleView/ToggleView';
 
 function SearchContainer() {
   return (
