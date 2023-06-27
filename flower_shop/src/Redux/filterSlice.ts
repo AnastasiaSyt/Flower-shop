@@ -7,6 +7,7 @@ export interface FilterState {
   flower: string[];
   priceRange: number[];
   sizeRange: number[];
+  selectedFilters: [];
 }
 
 const initialState: FilterState = {
@@ -16,6 +17,7 @@ const initialState: FilterState = {
   flower: [],
   priceRange: [],
   sizeRange: [],
+  selectedFilters: [],
 };
 
 const filterSlice = createSlice({
@@ -47,6 +49,7 @@ const filterSlice = createSlice({
       state.flower = [];
       state.priceRange = [];
       state.sizeRange = [];
+      state.selectedFilters = [];
     },
   },
 });

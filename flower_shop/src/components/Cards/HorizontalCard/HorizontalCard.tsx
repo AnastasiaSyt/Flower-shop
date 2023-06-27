@@ -27,11 +27,11 @@ const HorizontalCard: FC<CardProps> = ({ cardData }: CardProps) => {
         </div>
       </div>
       <div className="horizontal_card_right">
-        <CartLabel />
         <div className="horizontal_card_more_container">
           <p className="horizontal_card_more">подробнее</p>
           <img className="horizontal_card_icon" src={arrow_right} />
         </div>
+        <CartLabel item="listItem" />
       </div>
     </div>
   );

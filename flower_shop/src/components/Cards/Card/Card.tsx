@@ -25,7 +25,7 @@ const Card: FC<CardProps> = ({ cardData }: CardProps) => {
           <p className="price_card">${cardData.price}</p>
           <img className="card_icon" src={arrow_right} />
         </div>
-        <CartLabel />
+        <CartLabel item="cardItem" />
       </div>
     </div>
   );
