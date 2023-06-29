@@ -7,7 +7,7 @@ export interface FilterState {
   flower: string[];
   priceRange: number[];
   sizeRange: number[];
-  selectedFilters: [];
+  selectedFilters: string[];
 }
 
 const initialState: FilterState = {
@@ -51,6 +51,17 @@ const filterSlice = createSlice({
       state.sizeRange = [];
       state.selectedFilters = [];
     },
+    addSelectedCriteria: (state, action: PayloadAction<string>) => {
+      state.selectedFilters.push(action.payload);
+    },
+    removeSelectedCriteria: (state, action: PayloadAction<string>) => {
+      state.selectedFilters = state.selectedFilters.filter(
+        (criteria) => criteria !== action.payload
+      );
+    },
+    clearSelectedCriteria: (state) => {
+      state.selectedFilters = [];
+    },
   },
 });
 
@@ -62,5 +73,8 @@ export const {
   clearFilters,
   setPriceRange,
   setSizeRange,
+  addSelectedCriteria,
+  removeSelectedCriteria,
+  clearSelectedCriteria,
 } = filterSlice.actions;
 export default filterSlice.reducer;
