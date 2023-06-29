@@ -1,21 +1,27 @@
-import React, { useState } from "react";
-import arrow_up from "../../../assets/arrow-drop-up.svg";
-import arrow_down from "../../../assets/arrow-drop-down.svg";
-import "./RangeSlider.scss";
+import React, { useEffect, useState } from 'react';
+import arrow_up from '../../../assets/arrow-drop-up.svg';
+import arrow_down from '../../../assets/arrow-drop-down.svg';
+import './RangeSlider.scss';
+import { useDispatch } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 interface RangeSliderProps {
   minValue: number;
   maxValue: number;
   title: string;
+  range: number[];
+  setFilter: ActionCreatorWithPayload<number[]>;
 }
 
 const RangeSlider: React.FC<RangeSliderProps> = ({
   minValue,
   maxValue,
   title,
+  range,
+  setFilter,
 }) => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
-  const [values, setValues] = useState<number[]>([minValue, maxValue]);
+  const dispatch = useDispatch();
 
   const handleToggleCollapse = () => {
     setCollapsed(!collapsed);
@@ -23,12 +29,16 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setValues((prevValues) => {
-      const newValues = [...prevValues];
-      newValues[name] = Number(value);
-      return newValues;
-    });
+    const newValues = [...range];
+    newValues[Number(name)] = Number(value);
+    dispatch(setFilter(newValues));
   };
+
+  useEffect(() => {
+    if (range.length === 0) {
+      dispatch(setFilter([minValue, maxValue]));
+    }
+  }, [dispatch, maxValue, minValue, range.length, setFilter]);
 
   return (
     <div>
@@ -41,34 +51,11 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
         )}
       </button>
       {collapsed && (
-        // <div className="slider_container">
-        //   <div className="slider_track"></div>
-        // <input
-        //   type="range"
-        //   name="0"
-        //   min={minValue}
-        //   max={maxValue}
-        //   value={values[0]}
-        //   onChange={handleSliderChange}
-        //   id="slider-1"
-        // />
-        // <input
-        //   type="range"
-        //   name="1"
-        //   min={minValue}
-        //   max={maxValue}
-        //   value={values[1]}
-        //   onChange={handleSliderChange}
-        //   id="slider-2"
-        // />
-        //   <div>Минимальное значение: {values[0]}</div>
-        //   <div>Максимальное значение: {values[1]}</div>
-        // </div>
         <div className="filter_body">
           <div className="values">
-            <span id="range1">{values[0]}</span>
-            <span>-</span>
-            <span id="range2">{values[1]}</span>
+            <span id="range1">{range.length > 0 ? range[0] : minValue}</span>
+            <span className="values_dash">&ndash;</span>
+            <span id="range2">{range.length > 0 ? range[1] : maxValue}</span>
           </div>
           <div className="slider_container">
             <div className="slider_track"></div>
@@ -77,16 +64,17 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
               name="0"
               min={minValue}
               max={maxValue}
-              value={values[0]}
+              value={range[0] ?? minValue}
               onChange={handleSliderChange}
               id="slider-1"
             />
+
             <input
               type="range"
               name="1"
               min={minValue}
               max={maxValue}
-              value={values[1]}
+              value={range[1] ?? maxValue}
               onChange={handleSliderChange}
               id="slider-2"
             />

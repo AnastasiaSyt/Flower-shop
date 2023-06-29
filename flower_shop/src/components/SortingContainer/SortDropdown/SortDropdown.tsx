@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./SortDropdown.scss";
+import React, { useState } from 'react';
+import './SortDropdown.scss';
 
 interface SortOption {
   value: string;
@@ -12,7 +12,7 @@ interface SortDropdownProps {
 }
 
 const SortDropdown: React.FC<SortDropdownProps> = ({ options, onChange }) => {
-  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -22,19 +22,15 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ options, onChange }) => {
 
   return (
     <div className="dropdown">
-      <label htmlFor="sortDropdown">Сортировка:</label>
       <select
         id="sortDropdown"
         value={selectedOption}
         onChange={handleOptionChange}
         className="dropdown_option"
       >
+        <option>Выберите порядок сортировки</option>
         {options.map((option) => (
-          <option
-            key={option.value}
-            value={option.value}
-            className="dropdown_option"
-          >
+          <option key={option.value} value={option.value} className="dropdown_option">
             {option.label}
           </option>
         ))}

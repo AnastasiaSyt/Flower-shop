@@ -1,0 +1,43 @@
+.cart_tag {
+    width: 115px;
+    height: 30px;
+    background: $primary-color;
+    border-radius: 5px 0px 0px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    padding: 4px 7px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+.cart_tag:hover {
+    background: $primary-darker-color;
+}
+
+.listItem {
+    left: 40px;
+}
+
+.cardItem {
+    left: 153px;
+}
+
+.text_tag {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 2.8rem;
+    text-transform: uppercase;
+    color: $light-text-color;
+    z-index: 1;
+    margin-left: 5px;
+}
+
+.cart_icon {
+    height: 18px;
+    width: 18px;
+    margin: 6px;
+}

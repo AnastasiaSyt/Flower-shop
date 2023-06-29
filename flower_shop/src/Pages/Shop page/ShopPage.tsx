@@ -1,27 +1,28 @@
-import Filter from "../../components/Filter/Filter";
-import image from "../../assets/flowers-green-leaves.jpg";
-import SearchContainer from "../../components/SearchContainer/SearchContainer";
-import SortingContainer from "../../components/SortingContainer/SortingContainer";
-import CardsContainer from "../../components/Cards/CardsContainer";
-import { useEffect, useState } from "react";
-import ICards from "../../types/ICards";
-import "./ShopPage.scss";
+import { useEffect } from 'react';
+import './ShopPage.scss';
+import { useDispatch } from 'react-redux';
+import Filter from '../../components/Filter/Filter';
+import image from '../../assets/flowers-green-leaves.jpg';
+import SearchContainer from '../../components/SearchContainer/SearchContainer';
+import SortingContainer from '../../components/SortingContainer/SortingContainer';
+import CardsContainer from '../../components/Cards/CardsContainer';
+import { setCards } from '../../Redux/sortCardsSlice';
 
 function ShopPage() {
-  const [defaultCards, setDefaultCards] = useState<ICards[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(`http://localhost:3000/flowers`)
       .then(async (result) => await result.json())
       .then(
         (data) => {
-          setDefaultCards(data);
+          dispatch(setCards(data));
         },
         (error) => {
           console.error(error);
         }
       );
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -33,7 +34,7 @@ function ShopPage() {
             <SearchContainer />
             <SortingContainer />
           </div>
-          <CardsContainer cards={defaultCards} />
+          <CardsContainer />
         </div>
       </div>
     </div>
