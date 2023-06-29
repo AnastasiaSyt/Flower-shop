@@ -3,6 +3,7 @@ import { api } from '../services/api';
 import cardsReducer from './sortCardsSlice';
 import filterReducer from './filterSlice';
 import cardViewReducer from './cardViewSlice';
+import searchReducer from './searchSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     cards: cardsReducer,
     filters: filterReducer,
     cardView: cardViewReducer,
+    search: searchReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 });
