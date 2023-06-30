@@ -1,36 +1,30 @@
-import image from "../../assets/flowers-green-leaves.jpg";
-import "./ProductPage.scss";
-import { useParams } from "react-router-dom";
-import { useLocation } from "react-router";
-import ProductsCounter from "./ProductsCounter/ProductsCounter";
-import Button from "../../components/Button/Button";
-import ICards from "../../types/ICards";
+import image from '../../assets/flowers-green-leaves.jpg';
+import './ProductPage.scss';
+import { useLocation } from 'react-router';
+import ProductsCounter from './ProductsCounter/ProductsCounter';
+import Button from '../../components/Button/Button';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 function ProductPage() {
-  const { id } = useParams<{ id: string }>();
-  const location = useLocation<{ cardData: ICards }>();
+  const location = useLocation();
   const cardData = location.state && location.state.cardData;
-  console.log(cardData);
 
   return (
     <div>
       <img src={image} alt="top picture" className="flowers_top" />
-      <div className="wrapper product_page">
-        <p>Продукт {id}</p>
-      </div>
       <div id="cardProductPage" className="card_product wrapper">
-        <p className="breadcrumbs">Магазин &gt; цветы &gt; Красная роза</p>
+        <Breadcrumbs category={cardData.category} title={cardData.title} />
         <div className="card_product_content">
           <div className="card_product_images">
             <div className="card_product_small_img">
+              {cardData && cardData.images && cardData.images[0] && (
+                <img className="small_img" src={cardData.images[0]} />
+              )}
               {cardData && cardData.images && cardData.images[1] && (
                 <img className="small_img" src={cardData.images[1]} />
               )}
               {cardData && cardData.images && cardData.images[2] && (
                 <img className="small_img" src={cardData.images[2]} />
-              )}
-              {cardData && cardData.images && cardData.images[3] && (
-                <img className="small_img" src={cardData.images[3]} />
               )}
             </div>
             {cardData && cardData.thumbnail && (

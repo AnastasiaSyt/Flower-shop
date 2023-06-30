@@ -1,11 +1,11 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ROUTES from "./constants/routes";
-import Layout from "./components/Layout/Layout";
-import ShopPage from "./Pages/Shop page/ShopPage";
-import BasketPage from "./Pages/Basket page/BasketPage";
-import ErrorPage from "./Pages/Error page/ErrorPage";
-import ProductPage from "./Pages/Product page/ProductPage";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ROUTES from './constants/routes';
+import Layout from './components/Layout/Layout';
+import ShopPage from './Pages/Shop page/ShopPage';
+import BasketPage from './Pages/Basket page/BasketPage';
+import ErrorPage from './Pages/Error page/ErrorPage';
+import ProductPage from './Pages/Product page/ProductPage';
 
 function App() {
   return (
