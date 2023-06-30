@@ -12,17 +12,19 @@
 }
 
 .small_img {
-    width: 123px;
-    height: 139px;
+    width: 130px;
+    height: 130px;
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
     cursor: pointer;
     margin-bottom: 20px;
+    object-fit: cover;
 }
 
 .card_product_big_img {
     width: 470px;
     height: 528px;
     margin: 0 52px;
+    margin-bottom: 30px;
 }
 
 .card_product_title {
@@ -30,15 +32,33 @@
     font-size: 2.8rem;
     line-height: 2.8rem;
     text-transform: uppercase;
-    color: #333333;
+    color: $text-color;
     margin-bottom: 20px;
 }
 
 .card_product_description,
 .card_product_color {
     font-size: 1.8rem;
-    color: #333333;
+    color: $text-color;
     margin-bottom: 30px;
+}
+
+.card_product_description {
+    max-width: 500px;
+
+}
+
+.card_product_color{
+    display: flex;
+    align-items: center;
+
+    &_circle{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 5px;
+        border: 1px solid #e2e2e2;
+    }
 }
 
 .card_product_sort {
@@ -49,18 +69,60 @@
 
 .card_product_price {
     font-size: 3.6rem;
-    color: #333333;
+    color: $text-color;
     margin-bottom: 30px;
 }
 
 .card_product_buttons {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
+
+    &_cart{
+        margin-right: 20px;
+    }
 }
+
 .card_product_button {
     margin: 0px 30px 0px 0;
 }
 
 .card_product_tags {
     display: flex;
+    margin-bottom: 35px;
 }
+
+.big_image_container {
+    position: relative;
+    width: 470px;
+    height: 528px;
+    overflow: hidden;
+  }
+  
+  .card_product_big_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .big_image_container:hover .image {
+    transform: scale(2);
+  }
+  
+  .big_image_container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .big_image_container:hover::before {
+    opacity: 1;
+  }
