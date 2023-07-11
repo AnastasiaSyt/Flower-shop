@@ -23,7 +23,6 @@
 .card_product_big_img {
     width: 470px;
     height: 528px;
-    margin: 0 52px;
     margin-bottom: 30px;
 }
 
@@ -97,6 +96,8 @@
     width: 470px;
     height: 528px;
     overflow: hidden;
+    margin: 0 30px;
+    margin-bottom: 40px;
   }
   
   .card_product_big_img {
@@ -125,4 +126,8 @@
   
   .big_image_container:hover::before {
     opacity: 1;
+  }
+
+  .content {
+    flex: 1 0 auto;
   }

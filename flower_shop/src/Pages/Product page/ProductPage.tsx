@@ -30,7 +30,7 @@ function ProductPage() {
   };
 
   return (
-    <div>
+    <div className="content">
       <img src={image} alt="top picture" className="flowers_top" />
       <div id="cardProductPage" className="card_product wrapper">
         <Breadcrumbs category={cardData.category} title={cardData.title} />
