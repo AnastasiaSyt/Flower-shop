@@ -1,0 +1,14 @@
+.flower_tag {
+    padding: 0px 10px;
+    gap: 10px;
+    border-radius: 5px;
+    background: $primary-color;
+    margin-right: 10px;
+
+    &_text{
+        color: $light-text-color;
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+    }
+}

@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Header.scss";
-import logo from "../../assets/logo.svg";
-import cart from "../../assets/small_cart.svg";
-import ROUTES from "../../constants/routes";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Header.scss';
+import logo from '../../assets/logo.svg';
+import cart from '../../assets/small_cart.svg';
+import ROUTES from '../../constants/routes';
 
 class Header extends React.Component {
   render() {
