@@ -4,6 +4,7 @@ import cardsReducer from './sortCardsSlice';
 import filterReducer from './filterSlice';
 import cardViewReducer from './cardViewSlice';
 import searchReducer from './searchSlice';
+import cartReducer from './cartSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     filters: filterReducer,
     cardView: cardViewReducer,
     search: searchReducer,
+    cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 });

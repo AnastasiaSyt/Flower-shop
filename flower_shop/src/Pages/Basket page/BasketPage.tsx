@@ -1,9 +1,23 @@
-import ProductsCounter from "../Product page/ProductsCounter/ProductsCounter";
-import "./BasketPage.scss";
-import "./Promo/promo.scss";
-import image from "../../assets/flowers-green-leaves.jpg";
+import ProductsCounter from '../Product page/ProductsCounter/ProductsCounter';
+import './BasketPage.scss';
+import './Promo/promo.scss';
+import image from '../../assets/flowers-green-leaves.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../Redux/store';
+import { removeItem, updateItemQuantity } from '../../Redux/cartSlice';
 
 function BasketPage() {
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+  const dispatch = useDispatch();
+
+  const handleUpdateQuantity = (productId: number, quantity: number) => {
+    dispatch(updateItemQuantity({ productId, quantity }));
+  };
+
+  const handleRemoveItem = (productId: number) => {
+    dispatch(removeItem(productId));
+  };
+
   return (
     <div>
       <img src={image} alt="top picture" className="flowers_top" />
@@ -15,32 +29,26 @@ function BasketPage() {
             <p className="basket_items-head_name">Количество</p>
             <p className="basket_items-head_name">Цена</p>
           </div>
-          <div className="basket-item">
-            <input type="checkbox" className="checked" />
-            <div className="item-name_block">
-              <img
-                src="../../img/data_img/flowers_1.jpg"
-                className="basket-item_img"
+          {cartItems.map((item) => (
+            <div key={item.productId} className="basket-item">
+              <input type="checkbox" className="checked" />
+              <div className="item-name_block">
+                {/* Остальной код для отображения информации о товаре */}
+                {/* ... */}
+              </div>
+              <ProductsCounter
+                quantity={item.quantity}
+                onQuantityChange={(newQuantity) =>
+                  handleUpdateQuantity(item.productId, newQuantity)
+                }
               />
-              <div className="item-name">
-                <h2>Красная роза</h2>
-                <p>Доступно: 94</p>
+              {/* Остальной код для отображения информации о товаре */}
+              {/* ... */}
+              <div className="cross" onClick={() => handleRemoveItem(item.productId)}>
+                <span className="cross-line"></span>
               </div>
             </div>
-            <div className="item-color">
-              <p className="color_text">Красный</p>
-              <div className="color-chooser base darkred"></div>
-              <a className="color-chooser_text">Изменить</a>
-              <div className="colors_block">
-                <div className="color-chooser color darkred"></div>
-              </div>
-            </div>
-            <ProductsCounter />
-            <p className="price">$2</p>
-            <div className="cross">
-              <span className="cross-line"></span>
-            </div>
-          </div>
+          ))}
         </div>
         <div>
           <div className="check-content">
@@ -86,11 +94,7 @@ function BasketPage() {
               <p className="promotion">LF0UN</p>
             </div>
             <div className="input_block">
-              <input
-                type="text"
-                className="promo_input"
-                placeholder="Введите промокод"
-              />
+              <input type="text" className="promo_input" placeholder="Введите промокод" />
               <button className="promo_button">Ввод</button>
             </div>
           </div>
