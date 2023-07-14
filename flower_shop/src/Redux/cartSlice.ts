@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface CartItem {
   productId: number;
   quantity: number;
-  // Дополнительные свойства товара
 }
 
 interface CartState {
