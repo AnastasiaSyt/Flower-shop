@@ -1,28 +1,13 @@
-import { useEffect } from 'react';
 import './ShopPage.scss';
-import { useDispatch } from 'react-redux';
 import Filter from '../../components/Filter/Filter';
 import image from '../../assets/flowers-green-leaves.jpg';
 import SearchContainer from '../../components/SearchContainer/SearchContainer';
 import SortingContainer from '../../components/SortingContainer/SortingContainer';
 import CardsContainer from '../../components/Cards/CardsContainer';
-import { setCards } from '../../Redux/sortCardsSlice';
+import { useGetFlowersQuery } from '../../services/api';
 
 function ShopPage() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/flowers`)
-      .then(async (result) => await result.json())
-      .then(
-        (data) => {
-          dispatch(setCards(data));
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-  }, [dispatch]);
+  const { isLoading, error } = useGetFlowersQuery(9);
 
   return (
     <div>
@@ -34,7 +19,13 @@ function ShopPage() {
             <SearchContainer />
             <SortingContainer />
           </div>
-          <CardsContainer />
+          {isLoading ? (
+            'Loading...'
+          ) : error ? (
+            <div className="text_red">Error occurred while fetching data.</div>
+          ) : (
+            <CardsContainer />
+          )}
         </div>
       </div>
     </div>

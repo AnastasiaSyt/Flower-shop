@@ -1,18 +1,29 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import Card from './Card/Card';
+import { useGetFlowersQuery } from '../../services/api';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 import { filterCards } from '../../utils/filterUtils';
 import './CardsContainer.scss';
+import Card from './Card/Card';
 import HorizontalCard from './HorizontalCard/HorizontalCard';
 
 const CardsContainer: FC = () => {
   const cardView = useSelector((state: RootState) => state.cardView.view);
-  const cards = useSelector((state: RootState) => state.cards.cards);
   const filter = useSelector((state: RootState) => state.filters);
-  const filteredCards = filterCards(cards, filter);
   const searchQuery = useSelector((state: RootState) => state.search.query);
+
+  const { data: cards, isLoading, error } = useGetFlowersQuery(9);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text_red">Error occurred while fetching data.</div>;
+  }
+
+  const filteredCards = filterCards(cards || [], filter);
 
   const filteredAndSearchedCards = filteredCards.filter((card) =>
     card.title.toLowerCase().includes(searchQuery.toLowerCase())
