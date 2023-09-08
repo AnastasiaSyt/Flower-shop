@@ -4,9 +4,10 @@ import './Counter.scss';
 interface ProductsCounterProps {
   quantity: number;
   onQuantityChange: (newQuantity: number) => void;
+  stock: number;
 }
 
-function ProductsCounter({ quantity, onQuantityChange }: ProductsCounterProps) {
+function ProductsCounter({ quantity, onQuantityChange, stock }: ProductsCounterProps) {
   const handleIncrement = () => {
     onQuantityChange(quantity + 1);
   };
@@ -19,11 +20,11 @@ function ProductsCounter({ quantity, onQuantityChange }: ProductsCounterProps) {
 
   return (
     <div className="counter">
-      <button onClick={handleDecrement} className="button_counter">
+      <button onClick={handleDecrement} className="button_counter" disabled={quantity === 0}>
         -
       </button>
       <input className="input_counter" type="number" value={quantity} readOnly />
-      <button onClick={handleIncrement} className="button_counter">
+      <button onClick={handleIncrement} className="button_counter" disabled={quantity >= stock}>
         +
       </button>
     </div>

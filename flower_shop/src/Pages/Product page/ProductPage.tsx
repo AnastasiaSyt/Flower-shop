@@ -35,14 +35,16 @@ function ProductPage() {
 
   const handleAddToCart = () => {
     if (cardData) {
-      const { id, title, color, price } = cardData;
+      const { id, title, color, price, stock, thumbnail } = cardData;
       dispatch(
         addItem({
           productId: id,
-          name: title,
+          title: title,
           color: color,
           quantity: quantity,
           price: price,
+          stock: stock,
+          image: thumbnail,
         })
       );
     }
@@ -105,7 +107,11 @@ function ProductPage() {
               <Button className="card_product_buttons_cart" onClick={handleAddToCart}>
                 добавить в корзину
               </Button>
-              <ProductsCounter quantity={quantity} onQuantityChange={setQuantity} />
+              <ProductsCounter
+                quantity={quantity}
+                onQuantityChange={setQuantity}
+                stock={cardData.stock}
+              />
             </div>
           </div>
         </div>
