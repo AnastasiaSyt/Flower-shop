@@ -32,18 +32,13 @@ function BasketPage() {
           {cartItems.map((item) => (
             <div key={item.productId} className="basket-item">
               <input type="checkbox" className="checked" />
-              <div className="item-name_block">
-                {/* Остальной код для отображения информации о товаре */}
-                {/* ... */}
-              </div>
+              <div className="item-name_block"></div>
               <ProductsCounter
                 quantity={item.quantity}
                 onQuantityChange={(newQuantity) =>
                   handleUpdateQuantity(item.productId, newQuantity)
                 }
               />
-              {/* Остальной код для отображения информации о товаре */}
-              {/* ... */}
               <div className="cross" onClick={() => handleRemoveItem(item.productId)}>
                 <span className="cross-line"></span>
               </div>

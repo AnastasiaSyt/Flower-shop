@@ -6,9 +6,12 @@ import ProductsCounter from './ProductsCounter/ProductsCounter';
 import Button from '../../components/Button/Button';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import FlowerTag from '../../components/FlowerTag/FlowerTag';
+import { addItem } from '../../Redux/cartSlice';
+import { useDispatch } from 'react-redux';
 
 function ProductPage() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const cardData = location.state && location.state.cardData;
 
   const [selectedImage, setSelectedImage] = useState(
@@ -16,6 +19,7 @@ function ProductPage() {
   );
 
   const [isHovered, setIsHovered] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -27,6 +31,21 @@ function ProductPage() {
 
   const handleImageClick = (image: string) => {
     setSelectedImage(image);
+  };
+
+  const handleAddToCart = () => {
+    if (cardData) {
+      const { id, title, color, price } = cardData;
+      dispatch(
+        addItem({
+          productId: id,
+          name: title,
+          color: color,
+          quantity: quantity,
+          price: price,
+        })
+      );
+    }
   };
 
   return (
@@ -83,8 +102,10 @@ function ProductPage() {
             </div>
             <p className="card_product_price">${cardData.price}</p>
             <div className="card_product_buttons">
-              <Button className="card_product_buttons_cart">добавить в корзину</Button>
-              <ProductsCounter />
+              <Button className="card_product_buttons_cart" onClick={handleAddToCart}>
+                добавить в корзину
+              </Button>
+              <ProductsCounter quantity={quantity} onQuantityChange={setQuantity} />
             </div>
           </div>
         </div>
