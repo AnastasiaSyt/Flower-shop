@@ -15,7 +15,7 @@
   
 .basket_items-head::after {
     content: '';
-    width: 105%;
+    width: 100%;
     height: 1px;
     background-color: #EFEFEF;
     display: block;
@@ -99,7 +99,7 @@
 }
   
 .cross-line::after {
-content: '';
+    content: '';
     display: block;
     border-radius: 3px;
     width: 20px;

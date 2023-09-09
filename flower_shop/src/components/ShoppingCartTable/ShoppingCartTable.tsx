@@ -29,19 +29,17 @@ function ShoppingCartTable() {
       </div>
       {cartItems.map((item) => (
         <div key={item.productId} className="basket-item">
-          {/* <input type="checkbox" className="checked" />  TODO change style */}
           <img src={item.image} alt="flower image" className="item_image" />
           <div className="item-name_block">
             <p className="item-name_title">{item.title}</p>
             <p>Доступно: {item.stock - item.quantity}</p>
           </div>
           <div className="color">
-            {/* <p className="color_title">Цвет:</p> */}
             <div className="color_circle">
               {item.color.length > 1 ? (
                 <img src={colorfulCircle} alt="Colorful Circle" />
               ) : (
-                <div className="circle" style={{ backgroundColor: item.color }} />
+                <div className="circle" style={{ backgroundColor: item.color[0] }} />
               )}
             </div>
           </div>

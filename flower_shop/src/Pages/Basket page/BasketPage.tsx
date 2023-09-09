@@ -2,6 +2,7 @@ import './BasketPage.scss';
 import './Promo/promo.scss';
 import image from '../../assets/flowers-green-leaves.jpg';
 import ShoppingCartTable from '../../components/ShoppingCartTable/ShoppingCartTable';
+import TotalPrice from '../../components/TotalPrice/TotalPrice';
 
 function BasketPage() {
   return (
@@ -10,35 +11,8 @@ function BasketPage() {
       <div className="basket" id="basketPage">
         <ShoppingCartTable />
         <div>
-          <div className="check-content">
-            <h2>Итог</h2>
-            <ul className="prices_ul">
-              <li className="target_li">
-                <span className="goods-position">Товары</span>
-                <span className="goods-price">$0.00</span>
-              </li>
-              <li className="target_li">
-                <span className="tax-position">Налог</span>
-                <span className="tax-price">$10</span>
-              </li>
-              <li className="target_li">
-                <span className="delivery-position">Доставка</span>
-                <span className="delivery-price">$18</span>
-              </li>
-              <li className="target_li">
-                <span className="sale-position">Скидка</span>
-                <span className="sale-price">0%</span>
-              </li>
-              <li className="target_li total">
-                <span className="total-position">Всего</span>
-                <span className="total-price">$28</span>
-              </li>
-            </ul>
-            <button className="button order" id="button_order">
-              оформить заказ
-            </button>
-          </div>
-          <div className="promo_block">
+          <TotalPrice />
+          {/* <div className="promo_block">
             <div className="promo_text">Можно ввести следующие промокоды:</div>
             <div className="enter_promo">
               <p className="promotion">J5YU0</p>
@@ -56,7 +30,7 @@ function BasketPage() {
               <input type="text" className="promo_input" placeholder="Введите промокод" />
               <button className="promo_button">Ввод</button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -1,0 +1,58 @@
+.total_content {
+    width: 270px;
+    height: 385px;
+
+    border-radius: 6px;
+    background: $base-bg-color;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.08);
+
+    padding: 25px;
+}
+
+.total_title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+
+    margin-bottom: 40px;
+}
+
+.invoice {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 10px;
+    &_price {
+        text-align: right;
+    }
+    &_link {
+        text-decoration: underline;
+        color: $primary-color;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+    &_link:hover {
+        color: $primary-darker-color;
+    }
+}
+
+.invoice_total {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 16px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.invoice_total::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #EFEFEF;
+    display: block;
+    position: absolute;
+    top: 40px;
+}
