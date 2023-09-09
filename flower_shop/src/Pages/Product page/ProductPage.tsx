@@ -14,12 +14,6 @@ function ProductPage() {
   const dispatch = useDispatch();
   const cardData = location.state && location.state.cardData;
 
-  const dispatch = useDispatch();
-
-  const handleAddToCart = () => {
-    dispatch(addItem({ productId: cardData.productId, quantity: 1 }));
-  };
-
   const [selectedImage, setSelectedImage] = useState(
     cardData && cardData.images && cardData.images[0]
   );

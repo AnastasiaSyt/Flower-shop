@@ -4,8 +4,6 @@ import ICards from '../../../types/ICards';
 import arrow_right from '../../../assets/arrow-right.svg';
 import { useNavigate } from 'react-router-dom';
 import CartLabel from '../CartLabel/CartLabel';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../../../Redux/cartSlice';
 
 interface CardProps {
   cardData: ICards;
@@ -13,10 +11,8 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ cardData }: CardProps) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(addItem({ productId: cardData.id, quantity: 1 }));
     navigate(`/product/${cardData.id}`, { state: { cardData } });
   };
 
