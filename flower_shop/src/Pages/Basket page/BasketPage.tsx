@@ -1,5 +1,5 @@
 import './BasketPage.scss';
-import './Promo/promo.scss';
+import Promo from './Promo/Promo';
 import image from '../../assets/flowers-green-leaves.jpg';
 import ShoppingCartTable from '../../components/ShoppingCartTable/ShoppingCartTable';
 import TotalPrice from '../../components/TotalPrice/TotalPrice';

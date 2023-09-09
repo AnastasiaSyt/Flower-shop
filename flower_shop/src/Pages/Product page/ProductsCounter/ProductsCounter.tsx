@@ -1,5 +1,7 @@
 import React from 'react';
 import './Counter.scss';
+import { useDispatch } from 'react-redux';
+import { updateItemQuantity } from '../../../Redux/cartSlice';
 
 interface ProductsCounterProps {
   quantity: number;
