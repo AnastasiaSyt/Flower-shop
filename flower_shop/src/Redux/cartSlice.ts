@@ -13,6 +13,8 @@ interface CartItem {
 interface CartState {
   cartItems: CartItem[];
   totalPrice: number;
+  promoCode: string | null;
+  discount: number;
 }
 
 const cartSlice = createSlice({
@@ -20,6 +22,8 @@ const cartSlice = createSlice({
   initialState: {
     cartItems: [],
     totalPrice: 0,
+    promoCode: null,
+    discount: 0,
   } as CartState,
   reducers: {
     addItem: (state, action: PayloadAction<CartItem>) => {
@@ -48,9 +52,19 @@ const cartSlice = createSlice({
     updateTotalPrice: (state, action) => {
       state.totalPrice = action.payload;
     },
+    applyPromoCode: (state, action: PayloadAction<{ promoCode: string; discount: number }>) => {
+      state.promoCode = action.payload.promoCode;
+      state.discount = action.payload.discount;
+    },
   },
 });
 
-export const { addItem, updateItemQuantity, removeItem, clearCart, updateTotalPrice } =
-  cartSlice.actions;
+export const {
+  addItem,
+  updateItemQuantity,
+  removeItem,
+  clearCart,
+  updateTotalPrice,
+  applyPromoCode,
+} = cartSlice.actions;
 export default cartSlice.reducer;

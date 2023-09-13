@@ -5,10 +5,13 @@ import { RootState } from '../../Redux/store';
 
 function TotalPrice() {
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
+  const discount = useSelector((state: RootState) => state.cart.discount);
 
   const tax = totalPrice * 0.18;
-
   const delivery = totalPrice > 200 ? 0 : 20;
+  const discountAmount = (totalPrice * discount) / 100;
+  const total = totalPrice + tax + delivery - discountAmount;
+
   return (
     <div className="total_content">
       <h2 className="total_title">Итог</h2>
@@ -27,11 +30,11 @@ function TotalPrice() {
         </li>
         <li className="invoice">
           <span className="invoice_position invoice_link">Скидка</span>
-          <span className="sale-price">0%</span>
+          <span className="sale-price">{discount}%</span>
         </li>
         <li className="invoice_total">
           <span className="total_position">Всего</span>
-          <span className="total_price">${(totalPrice + tax + delivery).toFixed(2)}</span>
+          <span className="total_price">${total.toFixed(2)}</span>
         </li>
       </ul>
       <Button>ОФОРМИТЬ ЗАКАЗ</Button>
