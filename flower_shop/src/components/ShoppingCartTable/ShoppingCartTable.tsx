@@ -1,13 +1,25 @@
 import ProductsCounter from '../../Pages/Product page/ProductsCounter/ProductsCounter';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
-import { removeItem, updateItemQuantity } from '../../Redux/cartSlice';
+import { removeItem, updateItemQuantity, updateTotalPrice } from '../../Redux/cartSlice';
 import './ShoppingCartTable.scss';
 import colorfulCircle from '../../assets/colorful _circle.svg';
+import { useEffect, useState } from 'react';
 
 function ShoppingCartTable() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+    setTotalPrice(total);
+
+    dispatch(updateTotalPrice(total));
+  }, [cartItems, dispatch]);
 
   const handleUpdateQuantity = (productId: number, quantity: number) => {
     dispatch(updateItemQuantity({ productId, quantity }));

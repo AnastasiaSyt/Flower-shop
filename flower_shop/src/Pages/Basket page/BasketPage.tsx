@@ -1,3 +1,4 @@
+import React from 'react';
 import './BasketPage.scss';
 import image from '../../assets/flowers-green-leaves.jpg';
 import ShoppingCartTable from '../../components/ShoppingCartTable/ShoppingCartTable';
@@ -18,4 +19,5 @@ function BasketPage() {
     </div>
   );
 }
+
 export default BasketPage;
