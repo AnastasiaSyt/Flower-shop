@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100; /*TODO check it*/
   }
   
   .popup {
@@ -20,20 +19,32 @@
     max-width: 400px;
     height: 250px;
     width: 50%;
+
+    &_title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin-bottom: 30px;
+    }
+    &_text {
+      font-size: 16px;
+      margin-bottom: 30px; 
+    }
   }
   
   .close-button {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 30px;
     color: #999;
   }
-  
-  .popup-content p {
-    margin: 0;
-    padding: 0;
+
+  .popup_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
-  

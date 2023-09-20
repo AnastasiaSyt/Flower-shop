@@ -4,10 +4,13 @@ import './TotalPrice.scss';
 import { RootState } from '../../Redux/store';
 import { useState } from 'react';
 import Popup from '../PopUp/PopUp';
+import POPUPS from '../../constants/popups';
+import icon from '../../assets/icon_info.svg';
 
 function TotalPrice() {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [popupText, setPopupText] = useState('');
+  const [popupTitle, setPopupTitle] = useState('');
 
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const discount = useSelector((state: RootState) => state.cart.discount);
@@ -17,7 +20,8 @@ function TotalPrice() {
   const discountAmount = (totalPrice * discount) / 100;
   const total = totalPrice + tax + delivery - discountAmount;
 
-  const handleInvoiceLinkClick = (text: string) => {
+  const handleInvoiceLinkClick = (title: string, text: string) => {
+    setPopupTitle(title);
     setPopupText(text);
     setPopupVisible(true);
   };
@@ -37,27 +41,30 @@ function TotalPrice() {
         <li className="invoice">
           <span
             className="invoice_position invoice_link"
-            onClick={() => handleInvoiceLinkClick('Налог')}
+            onClick={() => handleInvoiceLinkClick(POPUPS.tax.title, POPUPS.tax.message)}
           >
             Налог
+            <img src={icon} alt="icon info" />
           </span>
           <span className="tax-price">${tax.toFixed(2)}</span>
         </li>
         <li className="invoice">
           <span
             className="invoisce_position invoice_link"
-            onClick={() => handleInvoiceLinkClick('Доставка')}
+            onClick={() => handleInvoiceLinkClick(POPUPS.delivery.title, POPUPS.delivery.message)}
           >
             Доставка
+            <img src={icon} alt="icon info" />
           </span>
           <span className="delivery-price">${delivery}</span>
         </li>
         <li className="invoice">
           <span
             className="invoice_position invoice_link"
-            onClick={() => handleInvoiceLinkClick('Скидка')}
+            onClick={() => handleInvoiceLinkClick(POPUPS.discount.title, POPUPS.discount.message)}
           >
             Скидка
+            <img src={icon} alt="icon info" />
           </span>
           <span className="sale-price">{discount}%</span>
         </li>
@@ -70,7 +77,7 @@ function TotalPrice() {
 
       {isPopupVisible && (
         <div className="popup-overlay">
-          <Popup text={popupText} onClose={handleClosePopup} />
+          <Popup title={popupTitle} text={popupText} onClose={handleClosePopup} />
         </div>
       )}
     </div>
