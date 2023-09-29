@@ -26,7 +26,7 @@ function ProductPage() {
   const [buttonText, setButtonText] = useState('Добавить в корзину');
 
   useEffect(() => {
-    const isItemInCart = cartItems.some((item) => item.productId === cardData?.id);
+    const isItemInCart = cartItems.some((item) => item.id === cardData?.id);
 
     if (isItemInCart) {
       setButtonText('Добавить еще');
@@ -49,16 +49,39 @@ function ProductPage() {
 
   const handleAddToCart = () => {
     if (cardData) {
-      const { id, title, color, price, stock, thumbnail } = cardData;
+      const {
+        id,
+        title,
+        color,
+        price,
+        stock,
+        thumbnail,
+        description,
+        flower,
+        rating,
+        size,
+        country,
+        occasions,
+        category,
+        images,
+      } = cardData;
       dispatch(
         addItem({
-          productId: id,
+          id: id,
           title: title,
           color: color,
           quantity: quantity,
           price: price,
           stock: stock,
-          image: thumbnail,
+          thumbnail: thumbnail,
+          description: description,
+          flower: flower,
+          rating: rating,
+          size: size,
+          country: country,
+          occasions: occasions,
+          category: category,
+          images: images,
         })
       );
       setButtonText('Товар добавлен');
@@ -66,7 +89,7 @@ function ProductPage() {
 
       setTimeout(() => {
         setMessageVisible(false);
-        const isItemInCart = cartItems.some((item) => item.productId === cardData.id);
+        const isItemInCart = cartItems.some((item) => item.id === cardData.id);
         if (isItemInCart) {
           setButtonText('Добавить еще');
         } else {
@@ -76,11 +99,18 @@ function ProductPage() {
     }
   };
 
+  if (!cardData) {
+    return 'ошибка';
+  }
+
   return (
     <div className="content">
       <img src={image} alt="top picture" className="flowers_top" />
       <div id="cardProductPage" className="card_product wrapper">
-        <Breadcrumbs category={cardData.category} title={cardData.title} />
+        <Breadcrumbs
+          category={cardData ? cardData.category : ''}
+          title={cardData ? cardData.title : ''}
+        />
         <div className="card_product_content">
           <div className="card_product_images">
             <div className="card_product_small_img">

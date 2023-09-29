@@ -32,7 +32,7 @@ const CardsContainer: FC = () => {
   const renderCards = () => {
     if (cardView === 'cards') {
       return filteredAndSearchedCards.map((cardData, index) => (
-        <Link key={index} to={`/product/${cardData.id}`} state={{ cardData }}>
+        <Link key={index} to={`/product/${cardData.id}`} state={{ cardData: cardData }}>
           <Card cardData={cardData} />
         </Link>
       ));

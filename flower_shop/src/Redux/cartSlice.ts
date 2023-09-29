@@ -1,17 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CartItem {
-  productId: number;
-  title: string;
-  color: string[];
+export interface ICartItem {
   quantity: number;
+  id: number;
+  title: string;
+  description: string;
+  flower: string[];
   price: number;
+  rating: number;
   stock: number;
-  image: string;
+  size: number;
+  country: string[];
+  occasions: string[];
+  category: string;
+  color: string[];
+  thumbnail: string;
+  images: string[];
 }
 
 interface CartState {
-  cartItems: CartItem[];
+  cartItems: ICartItem[];
   totalPrice: number;
   promoCode: string | null;
   discount: number;
@@ -26,9 +34,9 @@ const cartSlice = createSlice({
     discount: 0,
   } as CartState,
   reducers: {
-    addItem: (state, action: PayloadAction<CartItem>) => {
-      const { productId } = action.payload;
-      const existingItem = state.cartItems.find((item) => item.productId === productId);
+    addItem: (state, action: PayloadAction<ICartItem>) => {
+      const { id } = action.payload;
+      const existingItem = state.cartItems.find((item) => item.id === id);
 
       if (existingItem) {
         existingItem.quantity += action.payload.quantity;
@@ -36,15 +44,15 @@ const cartSlice = createSlice({
         state.cartItems.push(action.payload);
       }
     },
-    updateItemQuantity: (state, action: PayloadAction<{ productId: number; quantity: number }>) => {
-      const { productId, quantity } = action.payload;
-      const item = state.cartItems.find((item) => item.productId === productId);
+    updateItemQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
+      const { id, quantity } = action.payload;
+      const item = state.cartItems.find((item) => item.id === id);
       if (item) {
         item.quantity = quantity;
       }
     },
     removeItem: (state, action: PayloadAction<number>) => {
-      state.cartItems = state.cartItems.filter((item) => item.productId !== action.payload);
+      state.cartItems = state.cartItems.filter((item) => item.id !== action.payload);
     },
     clearCart: (state) => {
       state.cartItems = [];
