@@ -26,7 +26,9 @@ function CartItem({ item, onUpdateQuantity, onRemoveItem }: CartItemProps) {
         onClick={() => handleClick()}
       />
       <div className="item-name_block">
-        <p className="item-name_title">{item.title} </p>
+        <p className="item-name_title" onClick={() => handleClick()}>
+          {item.title}
+        </p>
         <p>Доступно: {item.stock - item.quantity}</p>
       </div>
       <div className="color">

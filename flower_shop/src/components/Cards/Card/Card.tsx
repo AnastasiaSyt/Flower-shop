@@ -2,7 +2,6 @@ import React, { type FC } from 'react';
 import './Card.scss';
 import ICards from '../../../types/ICards';
 import arrow_right from '../../../assets/arrow-right.svg';
-import { useNavigate } from 'react-router-dom';
 import CartLabel from '../CartLabel/CartLabel';
 
 interface CardProps {
@@ -10,14 +9,8 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ cardData }: CardProps) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/product/${cardData.id}`, { state: { cardData } });
-  };
-
   return (
-    <div className="card" onClick={handleClick}>
+    <div className="card">
       <img className="thumbnail" src={cardData.thumbnail} />
       <div className="card_content">
         <p className="card_title">{cardData.title}</p>
@@ -25,8 +18,9 @@ const Card: FC<CardProps> = ({ cardData }: CardProps) => {
           <p className="price_card">${cardData.price}</p>
           <img className="card_icon" src={arrow_right} />
         </div>
-        <CartLabel item="cardItem" />
       </div>
+
+      <CartLabel item="cardItem" />
     </div>
   );
 };

@@ -45,7 +45,8 @@
 
 .item_image {
     width: 100px;
-    height: 112px;   
+    height: 112px;
+    cursor: pointer;
 }
 
 .item-name_block {
@@ -60,6 +61,14 @@
     font-style: normal;
     font-weight: 600;
     line-height: 16px;
+    color: $text-color;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.6s ease-out;
+}
+
+.item-name_title:hover {
+    color: $primary-darker-color;
 }
 
 .color {
