@@ -7,13 +7,13 @@ import './Layout.scss';
 class Layout extends React.Component {
   render() {
     return (
-      <>
+      <div className="layout-wrapper">
         <Header />
         <div className="cover">
           <Outlet />
-          <Footer />
         </div>
-      </>
+        <Footer />
+      </div>
     );
   }
 }
