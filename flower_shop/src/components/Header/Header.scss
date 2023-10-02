@@ -1,5 +1,4 @@
 .header {
-    background: white;
     padding: 14px 0;
     filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.15));
 }
@@ -101,4 +100,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .header_menu {
+    display: flex;
+    &_item {
+        color: #615F5F;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 28px;
+        text-transform: uppercase;
+        margin-right: 30px;
+        transition: ease-out 0.4;
+    }
+    &_item:hover {
+        color: $primary-darker-color;
+    }
+  }
+
+  .sticky-header {
+    position: relative;
+    z-index: 10;
+    transition: background-color 0.5s ease-in-out, height 0.5s ease-in-out;
+  }
+  
+  .sticky-header.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
   }
