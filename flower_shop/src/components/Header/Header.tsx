@@ -47,6 +47,7 @@ function Header() {
             </div>
           </div>
         </Link>
+        <p className="enter">Войти</p>
       </div>
     </header>
   );

@@ -5,9 +5,25 @@ import SearchContainer from '../../components/SearchContainer/SearchContainer';
 import SortingContainer from '../../components/SortingContainer/SortingContainer';
 import CardsContainer from '../../components/Cards/CardsContainer';
 import { useGetFlowersQuery } from '../../services/api';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { clearFilters, setCategoryFilter } from '../../Redux/filterSlice';
 
-function ShopPage() {
+function ShopPage({ category }: { category: string }) {
   const { isLoading, error } = useGetFlowersQuery(9);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (category === 'flowers') {
+      dispatch(setCategoryFilter(['цветы']));
+    } else if (category === 'bouquets') {
+      dispatch(setCategoryFilter(['букеты']));
+    } else if (category === 'compositions') {
+      dispatch(setCategoryFilter(['композиция']));
+    } else if (category === 'all-categories') {
+      dispatch(clearFilters());
+    }
+  }, [category, dispatch]);
 
   return (
     <div>

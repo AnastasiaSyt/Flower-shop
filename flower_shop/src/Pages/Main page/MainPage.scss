@@ -1,21 +1,3 @@
-.main_page {
-    background: url(../../assets/flowers_bg.png) no-repeat;
-    background-clip: border-box;
-    background-size: 100%;
-}
-
-.main_title {
-    font-size: 230px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-
-    background: linear-gradient(180deg, #430F1E 15.96%, #9D2C4F 79.15%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #FFFFFF;
-}
-
 .main_title_small {
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -24,4 +6,50 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: -105px;
 }
+
+.main-page {
+    position: relative;
+    height: 100vh;
+  
+    .background-image {
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      z-index: -1;
+      transition: opacity 0.7s ease-in-out;
+    }
+  
+    .main_title {
+        margin-top: 160px;
+        font-size: 230px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+    
+        background: linear-gradient(180deg, #430F1E 15.96%, #9D2C4F 79.15%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px #FFFFFF;
+    }
+  
+    &:hover .background-image {
+      opacity: 1;
+    }
+  }
+  
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main_content {
+    display: flex;
+  }

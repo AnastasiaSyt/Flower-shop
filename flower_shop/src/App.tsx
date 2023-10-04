@@ -7,6 +7,7 @@ import BasketPage from './Pages/Basket page/BasketPage';
 import ErrorPage from './Pages/Error page/ErrorPage';
 import ProductPage from './Pages/Product page/ProductPage';
 import MainPage from './Pages/Main page/MainPage';
+import Category from './components/Category/Category';
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
       <Routes>
         <Route path={ROUTES.main} element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path={ROUTES.shop} element={<ShopPage />} />
+          <Route path={ROUTES.shop} element={<ShopPage category={'all-categories'} />} />
           <Route path={`${ROUTES.product}/:id`} element={<ProductPage />} />
           <Route path={ROUTES.basket} element={<BasketPage />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path={`${ROUTES.category}/:category`} element={<Category />} />
         </Route>
       </Routes>
     </BrowserRouter>
