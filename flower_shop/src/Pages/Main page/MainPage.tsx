@@ -2,6 +2,8 @@ import './MainPage.scss';
 import backgroundImage from '../../assets/flowers_bg.png';
 import arrows from '../../assets/arrows.svg';
 import { Link } from 'react-router-dom';
+import CardLink from '../../components/CardLink/CardLink';
+import CATEGORY from '../../constants/categories';
 
 function MainPage() {
   return (
@@ -17,10 +19,11 @@ function MainPage() {
       </div>
       <div className="main_content">
         <div className="main_cards">
-          <Link to="category/flowers">Цветы</Link>
-          <Link to="category/bouquets">Букеты</Link>
-          <Link to="category/compositions">Композиции</Link>
-          <Link to="category/all-categories">Все категории</Link>
+          {Object.values(CATEGORY).map((category) => (
+            <Link to={category.link} key={category.link}>
+              <CardLink cardData={category} />
+            </Link>
+          ))}
         </div>
       </div>
     </div>

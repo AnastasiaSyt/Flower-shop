@@ -1,0 +1,33 @@
+.card_link {
+    max-width: 213px;
+    // height: 235px;
+    border: 1px solid var(--Gray-5, #c9c9c9);
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.7s ease-in-out;
+}
+
+.card_link:hover {
+    border: none;
+    // background: $primary-color;
+}
+
+.card_link_image {
+    max-width: 210px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.7s ease-in-out;
+}
+
+.card_link_image:hover {
+    scale: 1.2;
+}
+
+.card_link_title {
+    margin-bottom: 20px;
+}
